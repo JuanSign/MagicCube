@@ -1,7 +1,7 @@
 #ifndef __OBJ_FUNC__
 #define __OBJ_FUNC__
 
-#include "../cube/cube.hpp"
+#include "../../cube/cube.hpp"
 
 using namespace std;
 
