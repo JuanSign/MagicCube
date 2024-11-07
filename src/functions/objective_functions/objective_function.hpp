@@ -8,18 +8,16 @@ using namespace std;
 class OBJECTIVE_FUNCTION
 {
 private:
-    CUBE cube;
     int option;
 
-    int OPTION_0();
-    int OPTION_1();
-    int OPTION_2();
+    int OPTION_0(CUBE cube);
+    int OPTION_1(CUBE cube);
+    int OPTION_2(CUBE cube);
 
 public:
-    OBJECTIVE_FUNCTION(CUBE c, int opt = 0);
-    void SET_CUBE(CUBE c);
+    OBJECTIVE_FUNCTION(int opt = 0);
     void SET_OPTION(int opt = 0);
-    int CALCULATE();
+    int CALCULATE(CUBE cube);
 };
 
 #endif
