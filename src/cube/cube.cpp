@@ -144,8 +144,6 @@ void CUBE::SWAP(int i, int j)
 {
     array<int, 3> i_cord = this->POSITIONS[i - 1]; // coordinate of number i
     array<int, 3> j_cord = this->POSITIONS[j - 1]; // coordinate of number j
-    vector<int> i_cond = this->ADJ[i - 1];         // CONSTRAINTS that contains i
-    vector<int> j_cond = this->ADJ[j - 1];         // CONSTRAINTS that contains j
 
     // update CONSTRAINTS
     for (int c = 0; c < 109; c++)
