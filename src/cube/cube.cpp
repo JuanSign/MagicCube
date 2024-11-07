@@ -146,18 +146,17 @@ void CUBE::SWAP(int i, int j)
     array<int, 3> j_cord = this->POSITIONS[j - 1]; // coordinate of number j
     vector<int> i_cond = this->ADJ[i - 1];         // CONSTRAINTS that contains i
     vector<int> j_cond = this->ADJ[j - 1];         // CONSTRAINTS that contains j
-    // update ADJ
-    for (int c : i_cond)
+
+    // update CONSTRAINTS
+    for (int c = 0; c < 109; c++)
     {
-        for (int &el : this->CONSTRAINTS[c])
-            if (el == i)
-                el = j;
-    }
-    for (int c : j_cond)
-    {
-        for (int &el : this->CONSTRAINTS[c])
-            if (el == j)
-                el = i;
+        for (int &e : this->CONSTRAINTS[c])
+        {
+            if (e == i)
+                e = j;
+            else if (e == j)
+                e = i;
+        }
     }
 
     // swap
