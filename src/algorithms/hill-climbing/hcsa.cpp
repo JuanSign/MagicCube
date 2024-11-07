@@ -2,13 +2,14 @@
 
 #include <climits>
 #include <iostream>
+#include <numeric>
 
 using namespace std;
 
 HCSA::HCSA(CUBE cube, int opt)
 {
     this->cube = cube;
-    this->obj_func = OBJECTIVE_FUNCTION(opt);
+    this->obj_func.SET_OPTION(opt);
 }
 
 void HCSA::SET_CUBE(CUBE cube) { this->cube = cube; }
@@ -57,6 +58,16 @@ void HCSA::RUN(bool output)
         if (output)
         {
             cout << "NEW SCORE: " << newScore << endl;
+            int avgDif = 0;
+            int correctConstraint = 0;
+            for (array<int, 5> c : cube.CONSTRAINTS)
+            {
+                int dif = abs(315 - accumulate(c.begin(), c.end(), 0));
+                avgDif += dif;
+                correctConstraint += (dif == 0);
+            }
+            cout << "AVG DIF: " << (double)avgDif / 109 << endl;
+            cout << "CORRECT CONSTRAINT: " << correctConstraint << endl;
             cout << "-----" << endl;
         }
 
